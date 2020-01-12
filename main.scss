@@ -170,3 +170,71 @@ a {
     transform: translateZ(35px)
   }
 }
+// ******************** BUTTON *********************
+@mixin dash ($array, $offset, $width) {
+  stroke-dasharray: $array;
+  stroke-dashoffset: $offset;
+  stroke-width: $width;
+}
+
+.button {
+  padding-top: 60px;
+  position: relative;
+  margin: 0 auto;
+  width: 320px;
+
+  &:hover
+    &__rect {
+      @include dash(760,0, 2px)
+    }
+
+  &__rect {
+    fill: transparent;
+    stroke: $orange;
+    border-bottom: 5px solid $orange;
+
+    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+    @include dash(140 540, -474, 8px)
+  }
+
+  &__text {
+    position: relative;
+    text-align: center;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: 8px;
+    color: $white;
+    top: -48px;
+  }
+}
+// ********************* FOOTER ************************
+footer {
+  position: absolute;
+  bottom: 20px;
+  left: 10%;
+  right: 10%;
+}
+.network {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3em;
+  font-family: 'Megrim', crusive;
+
+  a {
+    padding: 0px 25px;
+  
+    @media (max-width: 840px) {
+      padding: 0px 5px;
+    }
+  }
+  & a:hover {
+    transform: scale(2.5);
+    transition: 0.4s ease-out;
+    text-shadow: 0 0 5px $white, 0 0 10px $white, 0 0 15px $white, 0 0 20px $orange, 0 0 30px $orange, 0 0 40px $orange, 0 0 55px $orange, 0 0 75px $orange;
+
+    &:nth-child(5) {
+      transform: scale(1.1);
+      font-weight: bolder;
+    }
+  }
+}
