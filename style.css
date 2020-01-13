@@ -52,6 +52,7 @@ a:visited {
   position: absolute;
   top: 4px;
   right: 10px;
+  z-index: 100;
 }
 .nav li {
   display: inline;
